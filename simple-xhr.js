@@ -7,7 +7,7 @@ const getRequest = function ( method, url, dataType ) {
     // function used to call each attached callback function
     getRequest.execCallbacks = function (e) {
         //extract response text
-        const response = e.target.responseText; 
+        let response = e.target.responseText; 
         if (this.responseType === 'json') response = JSON.parse(response);
         //execute supplied callbacks
 
