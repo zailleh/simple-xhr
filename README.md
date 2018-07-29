@@ -13,21 +13,22 @@ Making a request is as simple as:
 ``` javascript
 getRequest = function ( method, url, dataType )
 ```
+[Try it on CodePen](https://codepen.io/xael/pen/EpbQyE)
 
 For example, to search for a book on google books:
 ``` javascript
-getRequest( 'GET', 'https://www.googleapis.com/books/v1/volumes?q=jaws', 'JSON' );
+simpleXhr( 'GET', 'https://www.googleapis.com/books/v1/volumes?q=jaws', 'JSON' );
 ```
 Note: this won't do anything with the results. To do something with the results, use the .done() deferred.
 For example, to print out the JSON to the console:
 ``` javascript
 const url = 'https://www.googleapis.com/books/v1/volumes?q=jaws';
-getRequest( 'GET', url, 'JSON' ).done( function(response) { console.log(response); } )
+simpleXhr( 'GET', url, 'JSON' ).done( function(response) { console.log(response); } )
 ```
 
 You can also chain the deferreds - the below will print out the response text twice.
 ``` javascript
 
 const deferred = function(response) { console.log(response); };
-getRequest( 'GET', url, 'JSON' ).done( deferred ).done( deferred );
+simpleXhr( 'GET', url, 'JSON' ).done( deferred ).done( deferred );
 ```
