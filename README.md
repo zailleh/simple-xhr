@@ -32,3 +32,6 @@ You can also chain the deferreds - the below will print out the response text tw
 const deferred = function(response) { console.log(response); };
 simpleXhr( 'GET', url, 'JSON' ).done( deferred ).done( deferred );
 ```
+
+**Using as a Module**
+The code is wrapped in an IFFE and is added as a method on `document`. I've been able to use this module successfully in React apps by linking on the index.html file.
